@@ -13,7 +13,7 @@ root.render(
     {/* <Provider store={store}> */}
 
     {/* <PersistGate loading={null} persistor={null}> */}
-    <BrowserRouter>
+    <BrowserRouter basename="/car-rent">
       <App />
     </BrowserRouter>
     {/* </PersistGate> */}

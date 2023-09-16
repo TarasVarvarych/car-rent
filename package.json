@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://tarasvarvarych.github.io/car-rent",
+  "homepage": "https://tarasvarvarych.github.io/car-rent/",
   "private": true,
   "dependencies": {
     "@emotion/styled": "^11.11.0",
