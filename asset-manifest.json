@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/car-rent/static/css/main.c00b14d4.css",
+    "main.js": "/car-rent/static/js/main.6ecc7aed.js",
+    "static/js/787.28cb0dcd.chunk.js": "/car-rent/static/js/787.28cb0dcd.chunk.js",
+    "static/media/heart.svg": "/car-rent/static/media/heart.ac060e771360fcc26ebb0c86173c8396.svg",
+    "index.html": "/car-rent/index.html",
+    "static/media/close.svg": "/car-rent/static/media/close.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
+    "main.c00b14d4.css.map": "/car-rent/static/css/main.c00b14d4.css.map",
+    "main.6ecc7aed.js.map": "/car-rent/static/js/main.6ecc7aed.js.map",
+    "787.28cb0dcd.chunk.js.map": "/car-rent/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c00b14d4.css",
+    "static/js/main.6ecc7aed.js"
+  ]
+}
