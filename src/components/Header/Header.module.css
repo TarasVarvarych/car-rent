@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px;
+}
+
+.inactive {
+  color: #3470ff;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  &:hover,
+  &:focus {
+    color: #0b44cd;
+  }
+}
+.active {
+  font-size: 24px;
+  color: #0b44cd;
+  text-decoration: underline;
+}

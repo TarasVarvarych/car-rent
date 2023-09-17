@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import SharedLayout from "./components/Container/SharedLayout";
+import SharedLayout from "./components/SharedLayout/SharedLayout";
 import { MainPage } from "./Pages/MainPage/MainPage";
 import { Catalog } from "./Pages/Catalog/Catalog";
 

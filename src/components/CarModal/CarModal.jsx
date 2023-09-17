@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-
 import Modal from "@mui/material/Modal";
 import css from "./CarModal.module.css";
 import { nanoid } from "nanoid";
@@ -42,7 +41,6 @@ export default function CarModal({
   mileage,
 }) {
   const [open, setOpen] = React.useState(isOpen);
-  //   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
     onClose();

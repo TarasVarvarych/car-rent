@@ -1,0 +1,17 @@
+.loadMoreBtn {
+  color: #3470ff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration-line: underline;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  &:hover,
+  &:focus {
+    color: #0b44cd;
+  }
+}
