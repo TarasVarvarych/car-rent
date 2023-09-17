@@ -108,9 +108,9 @@ export default function CarModal({
               Price: <span className={css.accent}>{price}</span>
             </span>
           </div>
-          <button type="button" className={css.btn}>
+          <a href="tel:380730000000" className={css.btn}>
             Rental car
-          </button>
+          </a>
         </Box>
       </Modal>
     </div>
