@@ -1,15 +1,16 @@
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import css from "./CarItem.module.css";
 import heartIcon from "../../assets/icons/heart.svg";
 import blueHeartIcon from "../../assets/icons/heartBlue.svg";
-
-import { useState } from "react";
 import CarModal from "../CarModal/CarModal";
 import { useDispatch, useSelector } from "react-redux";
-import { getFavorite } from "../../redux/selectors";
+import { getFavorites } from "../../redux/selectors";
 import { removeFavorite, setFavorite } from "../../redux/FavoritesSlice";
 
 export function CarItem({ car }) {
-  const { favorites } = useSelector(getFavorite);
+  const { favorites } = useSelector(getFavorites);
   const isCarFavorite = favorites.some((item) => item.id === car.id);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(isCarFavorite);
@@ -23,10 +24,30 @@ export function CarItem({ car }) {
     if (isFavorite) {
       dispatch(removeFavorite(car));
       setIsFavorite(false);
+      toast.warning("Removed from favorites", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
     dispatch(setFavorite(car));
     setIsFavorite(true);
+    toast.success("Added to favorites", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   const onModalClose = () => {
@@ -83,6 +104,19 @@ export function CarItem({ car }) {
           mileage={car.mileage}
         />
       )}
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <ToastContainer />
     </li>
   );
 }

@@ -26,12 +26,12 @@ const Catalog = () => {
     axios(URL).then((ads) => setCars(ads.data));
   }, []);
   return (
-    <>
+    <section>
       <CarList cars={displayedCars} />
       {displayedCars.length < cars.length && (
         <LoadMoreButton onClick={loadMoreCars} />
       )}
-    </>
+    </section>
   );
 };
 export default Catalog;

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { getFavorite } from "../../redux/selectors";
+import { getFavorites } from "../../redux/selectors";
 import { CarList } from "../../components/CarList/CarList";
 import { LoadMoreButton } from "../../components/LoadMoreButton/LoadMoreButton";
 import { Title } from "../../components/Title/Title";
 import { CatalogButton } from "../../components/CatalogButton/CatalogButton";
 
 const Favorites = () => {
-  const { favorites } = useSelector(getFavorite);
+  const { favorites } = useSelector(getFavorites);
   const [cars, setCars] = useState(favorites);
 
   const [displayedCars, setDisplayedCars] = useState([]);
@@ -27,7 +27,7 @@ const Favorites = () => {
   }, [cars]);
 
   return (
-    <>
+    <section>
       {displayedCars.length === 0 ? (
         <div>
           <Title text={"You have no favorite cars yet"} />
@@ -41,7 +41,7 @@ const Favorites = () => {
           )}
         </>
       )}
-    </>
+    </section>
   );
 };
 export default Favorites;
