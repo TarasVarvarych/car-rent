@@ -14,7 +14,7 @@ export function Loader() {
         zIndex: "999",
       }}
       wrapperClass="blocks-wrapper"
-      colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+      colors={["#3470FF", "#0B44CD", "#0B44CD", "#0B44CD", "#3470FF"]}
     />
   );
 }

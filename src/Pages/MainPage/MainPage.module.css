@@ -1,0 +1,26 @@
+.description {
+  font-size: 20px;
+  color: rgba(18, 20, 23, 0.5);
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.whyChooseUs {
+  font-size: 24px;
+  font-weight: bold;
+  color: #363535;
+  margin-bottom: 20px;
+}
+
+.list {
+  font-size: 16px;
+  color: rgba(18, 20, 23, 0.5);
+  margin-left: 20px;
+  list-style-type: disc;
+  margin-bottom: 20px;
+}
+
+.experience {
+  font-size: 18px;
+  color: #363535;
+}

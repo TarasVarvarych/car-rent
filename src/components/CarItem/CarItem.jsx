@@ -9,14 +9,11 @@ import { getFavorite } from "../../redux/selectors";
 import { removeFavorite, setFavorite } from "../../redux/FavoritesSlice";
 
 export function CarItem({ car }) {
-  const favorite = useSelector(getFavorite);
-
+  const { favorites } = useSelector(getFavorite);
+  const isCarFavorite = favorites.some((item) => item.id === car.id);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(
-    favorite.favorites.includes(car.id)
-  );
+  const [isFavorite, setIsFavorite] = useState(isCarFavorite);
   const dispatch = useDispatch();
-  //   console.log(favorite);
 
   const onLearnMoreClick = () => {
     setModalOpen(true);
@@ -24,11 +21,11 @@ export function CarItem({ car }) {
 
   const onFavoriteClick = () => {
     if (isFavorite) {
-      console.log(dispatch(removeFavorite(car.id)));
+      dispatch(removeFavorite(car));
       setIsFavorite(false);
       return;
     }
-    dispatch(setFavorite(car.id));
+    dispatch(setFavorite(car));
     setIsFavorite(true);
   };
 

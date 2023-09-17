@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { CarList } from "../../components/CarList/CarList";
-import css from "./Catalog.module.css";
+import { LoadMoreButton } from "../../components/LoadMoreButton/LoadMoreButton";
 
 const URL = "https://65056b0eef808d3c66f00342.mockapi.io/adverts";
 
-export function Catalog() {
+const Catalog = () => {
   const [cars, setCars] = useState([]);
   const [displayedCars, setDisplayedCars] = useState([]);
   const initialDisplayCount = 8;
@@ -26,13 +26,12 @@ export function Catalog() {
     axios(URL).then((ads) => setCars(ads.data));
   }, []);
   return (
-    <div>
+    <>
       <CarList cars={displayedCars} />
       {displayedCars.length < cars.length && (
-        <button onClick={loadMoreCars} className={css.loadMoreBtn}>
-          Load more
-        </button>
+        <LoadMoreButton onClick={loadMoreCars} />
       )}
-    </div>
+    </>
   );
-}
+};
+export default Catalog;

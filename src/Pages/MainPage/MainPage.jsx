@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+import { Title } from "../../components/Title/Title";
+import { CatalogButton } from "../../components/CatalogButton/CatalogButton";
+import css from "./MainPage.module.css";
+import { Slideshow } from "../../components/Slider/Slider";
 
-export function MainPage() {
+const MainPage = () => {
   return (
     <section>
-      <h1>Welcome to EasyRent - Your Ultimate Car Rental Solution!</h1>
-      <Link to="/catalog">Go to catalog</Link>
-      <div>
+      <Title
+        text={"Welcome to EasyRent - Your Ultimate Car Rental Solution!"}
+      />
+      <CatalogButton />
+      <div className={css.description}>
         Discover the freedom of the open road with our premier car rental
         service. Whether you're planning a weekend getaway or a cross-country
         adventure, we've got you covered. With an extensive fleet of
@@ -13,8 +18,8 @@ export function MainPage() {
         we make renting a car effortless and enjoyable.
       </div>
       <div>
-        <h2>Why choose us?</h2>
-        <ul>
+        <h2 className={css.whyChooseUs}>Why choose us?</h2>
+        <ul className={css.list}>
           <li>
             Diverse Fleet: From compact cars to spacious SUVs, we offer a wide
             range of vehicles to suit your needs and preferences.
@@ -37,15 +42,14 @@ export function MainPage() {
             to the highest standards, so you can drive with confidence.
           </li>
         </ul>
-        <p>
+        <Slideshow />
+        <p className={css.experience}>
           Experience convenience, affordability, and reliability like never
           before. Start your journey with EasyRent today!
-        </p>
-        <p>
-          Feel free to customize this description to fit the specific features
-          and benefits of your car rental service.
         </p>
       </div>
     </section>
   );
-}
+};
+
+export default MainPage;

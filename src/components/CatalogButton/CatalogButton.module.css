@@ -1,0 +1,14 @@
+.catalogBtn {
+  text-align: center;
+  color: #3470ff;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration-line: underline;
+  border: none;
+  background-color: transparent;
+  &:hover,
+  &:focus {
+    color: #0b44cd;
+  }
+}
