@@ -1,0 +1,124 @@
+.selectBrand {
+  border-radius: 14px;
+  border-color: transparent;
+  background-color: #f7f7fb;
+  width: 224px;
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.filterContainer {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.selectPrice {
+  border-radius: 14px;
+  border-color: transparent;
+  background-color: #f7f7fb;
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  width: 125px;
+}
+
+.inputBox {
+  display: flex;
+}
+
+.mileageFrom {
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  border-color: transparent;
+  background-color: #f7f7fb;
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  border-right: 1px solid #8a8a89;
+  width: 160px;
+}
+
+.mileageTo {
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  border-color: transparent;
+  background-color: #f7f7fb;
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  width: 160px;
+}
+
+.filterLabel {
+  display: block;
+  color: #8a8a89;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.searchBtn {
+  border-radius: 12px;
+  border-color: transparent;
+  background-color: #3470ff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 14px 44px;
+  margin-top: auto;
+  transition: 0.2s;
+  &:hover,
+  &:focus {
+    background-color: #0b44cd;
+    scale: 1.05;
+  }
+}
+
+.brandOptions {
+  position: absolute;
+  width: 224px;
+  height: 272px;
+  border-radius: 14px;
+  color: rgba(18, 20, 23, 0.2);
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  z-index: 900;
+  top: 80px;
+  overflow-y: scroll;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.priceOptions {
+  position: absolute;
+  width: 125px;
+  height: 188px;
+  border-radius: 14px;
+  color: rgba(18, 20, 23, 0.2);
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  z-index: 900;
+  top: 80px;
+  overflow-y: scroll;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
