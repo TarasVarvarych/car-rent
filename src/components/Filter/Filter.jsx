@@ -53,6 +53,7 @@ const Filter = ({ brands, maxPrice }) => {
             <div className={css.brandOptions} onClick={handleBrandClick}>
               {brandsToShow.map((brand) => (
                 <div
+                  className={css.option}
                   key={brand}
                   onClick={() => {
                     setBrand(brand);
@@ -82,6 +83,7 @@ const Filter = ({ brands, maxPrice }) => {
             <div className={css.priceOptions}>
               {arrayOfPrices.map((price) => (
                 <div
+                  className={css.option}
                   key={price}
                   onClick={() => {
                     setPrice(price);
