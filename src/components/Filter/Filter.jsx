@@ -3,6 +3,8 @@ import css from "./Filter.module.css";
 const Filter = ({ brands, maxPrice }) => {
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
+  const [minMileage, setMinMileage] = useState("");
+  const [maxMileage, setMaxMileage] = useState("");
   const [showBrandOptions, setShowBrandOptions] = useState(false);
   const [showPriceOptions, setShowPriceOptions] = useState(false);
   const brandsToShow = brands.filter((item) =>
@@ -30,6 +32,14 @@ const Filter = ({ brands, maxPrice }) => {
   const handlePriceClick = () => {
     setShowPriceOptions(!showPriceOptions);
     setShowBrandOptions(false);
+  };
+
+  const handleMinMileageChange = (event) => {
+    setMinMileage(Number(event.target.value));
+  };
+
+  const handleMaxMileageChange = (event) => {
+    setMaxMileage(Number(event.target.value));
   };
 
   const handleSearch = () => {};
@@ -96,8 +106,20 @@ const Filter = ({ brands, maxPrice }) => {
       <div>
         <label className={css.filterLabel}>Car mileage / km</label>
         <div className={css.inputBox}>
-          <input type="number" placeholder="From" className={css.mileageFrom} />
-          <input type="number" placeholder="To" className={css.mileageTo} />
+          <input
+            type="text"
+            placeholder="From"
+            className={css.mileageFrom}
+            onChange={handleMinMileageChange}
+            value={minMileage}
+          />
+          <input
+            type="text"
+            placeholder="To"
+            className={css.mileageTo}
+            onChange={handleMaxMileageChange}
+            value={maxMileage}
+          />
         </div>
       </div>
 
