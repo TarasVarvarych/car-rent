@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import css from "./Filter.module.css";
-const Filter = ({ brands, maxPrice }) => {
+
+import clear from "../../assets/icons/clear.svg";
+const Filter = ({ brands, maxPrice, onFilterChange }) => {
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
   const [minMileage, setMinMileage] = useState("");
   const [maxMileage, setMaxMileage] = useState("");
   const [showBrandOptions, setShowBrandOptions] = useState(false);
   const [showPriceOptions, setShowPriceOptions] = useState(false);
+  const filters = {
+    brand: brand,
+    price: price,
+    minMileage: minMileage,
+    maxMileage: maxMileage,
+  };
+  const shouldShowClearBtn =
+    brand !== "" || price !== "" || minMileage !== "" || maxMileage !== "";
+  console.log(shouldShowClearBtn);
   const brandsToShow = brands.filter((item) =>
     item.toLowerCase().includes(brand.toLocaleLowerCase())
   );
@@ -42,7 +53,12 @@ const Filter = ({ brands, maxPrice }) => {
     setMaxMileage(Number(event.target.value));
   };
 
-  const handleSearch = () => {};
+  const clearFilter = () => {
+    setBrand("");
+    setPrice("");
+    setMinMileage("");
+    setMaxMileage("");
+  };
 
   return (
     <div className={css.filterContainer}>
@@ -125,9 +141,14 @@ const Filter = ({ brands, maxPrice }) => {
         </div>
       </div>
 
-      <button className={css.searchBtn} onClick={handleSearch}>
+      <button className={css.searchBtn} onClick={() => onFilterChange(filters)}>
         Search
       </button>
+      {shouldShowClearBtn && (
+        <button className={css.clearBtn} onClick={clearFilter}>
+          <img src={clear} alt="clear button" />
+        </button>
+      )}
     </div>
   );
 };

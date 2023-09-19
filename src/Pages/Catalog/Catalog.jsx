@@ -8,9 +8,14 @@ import Filter from "../../components/Filter/Filter";
 const URL = "https://65056b0eef808d3c66f00342.mockapi.io/adverts";
 
 const Catalog = () => {
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedMinMileage, setSelectedMinMileage] = useState("");
+  const [selectedMaxMileage, setSelectedMaxMileage] = useState("");
   const [cars, setCars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [displayedCars, setDisplayedCars] = useState([]);
+  const [showLoadMore, setShowLoadMore] = useState(true);
   const initialDisplayCount = 8;
   const brands = [...new Set(cars.map((car) => car.make))];
 
@@ -32,9 +37,67 @@ const Catalog = () => {
       });
   }, []);
 
+  useEffect(() => {
+    const applyFilters = (car) => {
+      if (
+        (!selectedBrand || car.make === selectedBrand) &&
+        (!selectedPrice ||
+          Number(car.rentalPrice.replace(/\D/g, "")) <= selectedPrice) &&
+        (!selectedMinMileage || car.mileage >= selectedMinMileage) &&
+        (!selectedMaxMileage || car.mileage <= selectedMaxMileage)
+      ) {
+        return true;
+      }
+      return false;
+    };
+
+    const filteredCars = cars.filter(applyFilters);
+
+    if (filteredCars.length <= 8) {
+      setShowLoadMore(false);
+    } else {
+      setShowLoadMore(true);
+    }
+
+    setDisplayedCars(filteredCars.slice(0, initialDisplayCount));
+  }, [
+    selectedBrand,
+    selectedPrice,
+    selectedMinMileage,
+    selectedMaxMileage,
+    cars,
+    initialDisplayCount,
+  ]);
+
+  const handleFilterChange = (filters) => {
+    setSelectedBrand(filters.brand);
+    setSelectedPrice(filters.price);
+    setSelectedMinMileage(filters.minMileage);
+    setSelectedMaxMileage(filters.maxMileage);
+  };
+
   const loadMoreCars = () => {
     const newDisplayCount = displayedCars.length + 8;
-    setDisplayedCars(cars.slice(0, newDisplayCount));
+
+    const filteredCars = cars.filter((car) => {
+      if (
+        (selectedBrand && car.make !== selectedBrand) ||
+        (selectedPrice &&
+          Number(car.rentalPrice.replace(/\D/g, "")) > selectedPrice) ||
+        (selectedMinMileage &&
+          (car.mileage < selectedMinMileage ||
+            (selectedMaxMileage && car.mileage > selectedMaxMileage)))
+      ) {
+        return false;
+      }
+      return true;
+    });
+
+    if (filteredCars.length <= newDisplayCount) {
+      setShowLoadMore(false);
+    }
+
+    setDisplayedCars(filteredCars.slice(0, newDisplayCount));
   };
 
   useEffect(() => {
@@ -46,9 +109,14 @@ const Catalog = () => {
         <Loader />
       ) : (
         <>
-          <Filter brands={brands} maxPrice={maxPrice} />
+          <Filter
+            brands={brands}
+            maxPrice={maxPrice}
+            onFilterChange={handleFilterChange}
+          />
+
           <CarList cars={displayedCars} />
-          {displayedCars.length < cars.length && (
+          {showLoadMore && displayedCars.length < cars.length && (
             <LoadMoreButton onClick={loadMoreCars} />
           )}
         </>
